@@ -12,6 +12,11 @@ runway = PassiveObject("./data/road.blend", "Plane")
 #runway.scale = ((4000/11),(60/2.5),1)
 runway.scale = ((100./11),(20./2.5),1)
 
+# Lights
+for i in range(10):
+    outlight = PassiveObject("./data/lights.blend", "outlight")
+    outlight.translate(x=i*10-50,y=5)
+
 # 4MOB
 robot = Morsy()
 keyboard = Keyboard()
