@@ -16,17 +16,27 @@ runway.scale = ((100./11),(20./2.5),1)
 for i in range(10):
     outlight = PassiveObject("./data/lights.blend", "outlight")
     outlight.translate(x=i*10-50,y=5)
+    
+# Obstacle
+for i in range(10):
+    obstacle = PassiveObject("./data/obstacle.blend", "Obstacle")
+    obstacle.translate(x=i*10-49,y=5)
+
+    
 
 # 4MOB
 robot = Morsy()
+
 keyboard = Keyboard()
 keyboard.properties(ControlType = 'Position')
+keyboard.properties(Speed=4) # To remove if useless, just making the robot goes quicker
 robot.append(keyboard)
 
 #robot.add_default_interface('ros')
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('', fastmode = False)
+env.set_camera_speed(8) # Increase camera speed for debugging purpose
 env.set_camera_location([-18.0, -6.7, 10.8])
 env.set_camera_rotation([1.09, 0, -1.14])
 
