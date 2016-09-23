@@ -14,7 +14,9 @@ runway.scale = ((100./11),(20./2.5),1)
 
 # Lights
 for i in range(10):
-    outlight = PassiveObject("./data/lights.blend", "outlight")
+    point = PassiveObject("./data/lights2.blend", 'Point') 
+    point.translate(x=i*10-50,y=5, z=0.21)
+    outlight = PassiveObject("./data/lights2.blend", "outlight")
     outlight.translate(x=i*10-50,y=5)
     
 # Obstacle
