@@ -6,6 +6,7 @@ CPSELabs Sterela runway light inspection project
 
 from morse.builder import *
 from sterela_runway.builder.sensors import PAC
+import math
 
 # Runway
 runway = PassiveObject("data/road.blend", "Plane")
@@ -25,6 +26,7 @@ for i in range(10):
     obstacle = PassiveObject("data/obstacle.blend", "Obstacle")
     obstacle.translate(x=i*10-49,y=5)
 
+
 # 4MOB
 robot = ATRV()
 keyboard = Keyboard()
@@ -34,7 +36,7 @@ robot.append(keyboard)
 
 # PAC sensor
 pac = PAC()
-pac.translate(z=0.65,y=-(1+1.3)/2)
+pac.translate(z=0.65,y=(1+1.3)/2)
 robot.append(pac)
 
 # Lasers
@@ -43,11 +45,17 @@ robot_laser.translate(x=0.6,z=0.15)
 robot_laser.properties(Visible_arc=False)
 robot.append(robot_laser)
 pac_laser = Sick()
-pac_laser.translate(z=0.5,y=-(1+1.3)/2)
+pac_laser.translate(z=0.5,y=(1+1.3)/2)
 pac_laser.properties(Visible_arc=False)
 robot.append(pac_laser)
 
-#robot.add_default_interface('ros')
+# V,W control
+control = MotionVW()
+robot.append(control)
+
+# Init robot: start of line
+robot.translate(x=-45,y=3.85)
+robot.add_default_interface('ros')
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('', fastmode = False)
