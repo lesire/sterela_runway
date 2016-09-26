@@ -37,6 +37,16 @@ pac = PAC()
 pac.translate(z=0.65,y=-(1+1.3)/2)
 robot.append(pac)
 
+# Lasers
+robot_laser = Sick()
+robot_laser.translate(x=0.6,z=0.15)
+robot_laser.properties(Visible_arc=False)
+robot.append(robot_laser)
+pac_laser = Sick()
+pac_laser.translate(z=0.5,y=-(1+1.3)/2)
+pac_laser.properties(Visible_arc=False)
+robot.append(pac_laser)
+
 #robot.add_default_interface('ros')
 
 # set 'fastmode' to True to switch to wireframe mode
