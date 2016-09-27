@@ -28,10 +28,10 @@ for i in range(10):
     outlight.translate(x=i*10-50,y=5)
     
 # Obstacle
-for i in range(10):
+'''for i in range(10):
     obstacle = PassiveObject("data/obstacle.blend", "Obstacle")
     obstacle.translate(x=i*10-49,y=5)
-
+'''
 # 4MOB
 robot = ATRV()
 keyboard = Keyboard()
