@@ -26,13 +26,14 @@ for i in range(10):
     obstacle = PassiveObject("data/obstacle.blend", "Obstacle")
     obstacle.translate(x=i*10-49,y=5)
 
-
 # 4MOB
 robot = ATRV()
 keyboard = Keyboard()
 keyboard.properties(ControlType = 'Position')
 keyboard.properties(Speed=2)
 robot.append(keyboard)
+pose = Pose()
+robot.append(pose)
 
 # PAC sensor
 pac = PAC()
