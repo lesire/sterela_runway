@@ -6,13 +6,19 @@ CPSELabs Sterela runway light inspection project
 
 from morse.builder import *
 from sterela_runway.builder.sensors import PAC
-import math
+import math, os, bpy
 
 # Runway
-runway = PassiveObject("data/road.blend", "Plane")
-## plane width is 2.5; length is 11
-#runway.scale = ((4000/11),(60/2.5),1)
-runway.scale = ((100./11),(20./2.5),1)
+runway = Plane("Runway")
+runway.scale = (50, 10, 1)
+runway._bpy_object.game.physics_type = 'STATIC'
+
+# Sun
+scene = bpy.context.scene
+lamp_data = bpy.data.lamps.new(name="Sun", type='SUN')
+lamp_object = bpy.data.objects.new(name="Sun", object_data=lamp_data)
+scene.objects.link(lamp_object)
+lamp_object.location = (0, 0, 10.0)
 
 # Lights
 for i in range(10):
@@ -22,10 +28,10 @@ for i in range(10):
     outlight.translate(x=i*10-50,y=5)
     
 # Obstacle
-for i in range(10):
+'''for i in range(10):
     obstacle = PassiveObject("data/obstacle.blend", "Obstacle")
     obstacle.translate(x=i*10-49,y=5)
-
+'''
 # 4MOB
 robot = ATRV()
 keyboard = Keyboard()
@@ -57,10 +63,13 @@ robot.append(control)
 # Init robot: start of line
 robot.translate(x=-45,y=3.85)
 robot.add_default_interface('ros')
+robot.add_default_interface('socket')
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('', fastmode = False)
 env.set_camera_speed(8) # Increase camera speed for debugging purpose
 env.set_camera_location([-18.0, -6.7, 10.8])
 env.set_camera_rotation([1.09, 0, -1.14])
+env.show_framerate()
+env.show_debug_properties()
 
