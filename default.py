@@ -28,10 +28,10 @@ for i in range(10):
     outlight.translate(x=i*10-50,y=5)
     
 # Obstacle
-'''for i in range(10):
+for i in range(10):
     obstacle = PassiveObject("data/obstacle.blend", "Obstacle")
     obstacle.translate(x=i*10-49,y=5)
-'''
+
 # 4MOB
 robot = ATRV()
 keyboard = Keyboard()
@@ -54,6 +54,7 @@ robot.append(robot_laser)
 pac_laser = Sick()
 pac_laser.translate(z=0.5,y=(1+1.3)/2)
 pac_laser.properties(Visible_arc=False)
+pac_laser.properties(scan_window=90)
 robot.append(pac_laser)
 
 # V,W control
@@ -63,7 +64,7 @@ robot.append(control)
 # Init robot: start of line
 robot.translate(x=-45,y=3.85)
 robot.add_default_interface('ros')
-robot.add_default_interface('socket')
+#robot.add_default_interface('socket')
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('', fastmode = False)
