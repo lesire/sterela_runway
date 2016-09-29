@@ -25,9 +25,16 @@
 * Create a catkin workspace with MAUVE:
   * sudo apt install openjdk-8-{jdk,jre} scala
   * mkdir -p ~/catkin_ws/src
-  * cd ~/catkin_ws/src
+  * cd ~/catkin_ws/
   * git clone http://mauve:mauve@git.onera.fr/mauve.git src/mauve
   * catkin_make
   * source devel/setup.sh
 * Install the control architecture
+  * cd ~/catkin_ws/
+  * git clone https://github.com/lesire/mauve_sterela.git
+  * catkin_make
+  * source devel/setup.sh
   
+### Launch
+
+* roslaunch sterela ObstacleDeployment.launch
