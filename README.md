@@ -31,7 +31,7 @@
   * source devel/setup.sh
 * Install the control architecture
   * cd ~/catkin_ws/
-  * git clone https://github.com/lesire/mauve_sterela.git
+  * git clone https://github.com/lesire/mauve_sterela.git src/mauve_sterela
   * catkin_make
   * source devel/setup.sh
   

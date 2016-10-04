@@ -47,9 +47,10 @@ pac.translate(z=0.65,y=(1+1.3)/2)
 robot.append(pac)
 
 # Lasers
-robot_laser = Sick()
-robot_laser.translate(x=0.6,z=0.15)
+robot_laser = Hokuyo()
+robot_laser.translate(x=0.6,y=0.4,z=0.15)
 robot_laser.properties(Visible_arc=False)
+robot_laser.properties(scan_window=270)
 robot.append(robot_laser)
 pac_laser = Sick()
 pac_laser.translate(z=0.5,y=(1+1.3)/2)
