@@ -38,3 +38,18 @@
 ### Launch
 
 * roslaunch sterela ObstacleDeployment.launch
+
+## Monitors
+
+### Install
+
+* cd ~/catkin_ws/
+* git clone https://github.com/lesire/sterela_monitors.git src/sterela_monitors
+* catkin_make
+* source devel/setup.sh
+
+### Launch
+
+Will launch the monitor itself (scripts/monitor.py) + topic connections between MAUVE, MORSE and the monitor.
+
+* roslaunch sterela_monitors monitor.launch
