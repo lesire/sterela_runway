@@ -9,6 +9,6 @@ class PAC(VideoCamera):
         mesh.scale = (.65, 0.1, .1)
         mesh.translate(z=-0.1)
         mesh.color(.5, .5, .5)
-        mesh._bpy_object.game.physics_type = 'RIGID_BODY'
+        mesh._bpy_object.game.physics_type = 'NO_COLLISION'
         self.append(mesh)
 
